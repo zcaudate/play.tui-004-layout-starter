@@ -63,6 +63,6 @@ function App(){
 }
 
 // play.tui-004-layout-starter.main/__init__ [56] 
-// 4ac23d90-ed70-4058-85a3-aa764402898b
+// 0ce9f4a2-79e2-4643-bc46-877180ee2ef3
 b.run((
   <App></App>),"Js Blessed Starter Demo");
