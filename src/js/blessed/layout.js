@@ -6,11 +6,7 @@ import k from '../../xt/lang/base-lib'
 
 import r from '../react'
 
-import b from '../blessed'
-
-import ui from './ui'
-
-// js.blessed.layout/primaryNormal [19] 
+// js.blessed.layout/primaryNormal [17] 
 var primaryNormal = {
   "hover":{"fg":"black","bg":"white","bold":false},
   "bold":false,
@@ -18,7 +14,7 @@ var primaryNormal = {
   "bg":"black"
 };
 
-// js.blessed.layout/primarySelected [27] 
+// js.blessed.layout/primarySelected [25] 
 var primarySelected = {
   "hover":{"bg":"gray","fg":"yellow","bold":true},
   "bold":true,
@@ -26,10 +22,10 @@ var primarySelected = {
   "fg":"yellow"
 };
 
-// js.blessed.layout/toggleEngaged [35] 
+// js.blessed.layout/toggleEngaged [33] 
 var toggleEngaged = {"bg":"black","fg":"magenta","bold":false};
 
-// js.blessed.layout/toggleSelected [40] 
+// js.blessed.layout/toggleSelected [38] 
 var toggleSelected = {
   "bg":"white",
   "fg":"black",
@@ -37,7 +33,7 @@ var toggleSelected = {
   "bold":true
 };
 
-// js.blessed.layout/toggleNormal [48] 
+// js.blessed.layout/toggleNormal [46] 
 var toggleNormal = {
   "bg":"black",
   "fg":"white",
@@ -45,7 +41,7 @@ var toggleNormal = {
   "bold":false
 };
 
-// js.blessed.layout/PrimaryButton [55] 
+// js.blessed.layout/PrimaryButton [53] 
 function PrimaryButton({label,index,selected,route,setRoute,proxy,...rprops}){
   let content = chalk.inverse(" " + index + " ") + "  " + label + "  ";
   return (
@@ -63,7 +59,7 @@ function PrimaryButton({label,index,selected,route,setRoute,proxy,...rprops}){
     </button>);
 }
 
-// js.blessed.layout/layoutMenu [79] 
+// js.blessed.layout/layoutMenu [77] 
 function layoutMenu(items){
   let entries = items.filter(function (e){
     return Array.isArray(e.hidden) ? !e.hidden() : !e.hidden;
@@ -83,7 +79,7 @@ function layoutMenu(items){
   });
 }
 
-// js.blessed.layout/layoutToggles [99] 
+// js.blessed.layout/layoutToggles [97] 
 function layoutToggles(items){
   let entries = items.filter(function (e){
     return ("function" == (typeof e.hidden)) ? !e.hidden() : !e.hidden;
@@ -102,7 +98,7 @@ function layoutToggles(items){
   });
 }
 
-// js.blessed.layout/PrimaryMenu [119] 
+// js.blessed.layout/PrimaryMenu [117] 
 function PrimaryMenu({entries,route,setRoute,...rprops}){
   let box = React.useRef(null);
   React.useEffect(function (){
@@ -132,7 +128,7 @@ function PrimaryMenu({entries,route,setRoute,...rprops}){
     </box>);
 }
 
-// js.blessed.layout/PrimaryToggle [151] 
+// js.blessed.layout/PrimaryToggle [149] 
 function PrimaryToggle({active,setActive,label,...rprops}){
   return (
     <button
@@ -151,7 +147,7 @@ function PrimaryToggle({active,setActive,label,...rprops}){
     </button>);
 }
 
-// js.blessed.layout/PrimaryToggles [172] 
+// js.blessed.layout/PrimaryToggles [170] 
 function PrimaryToggles({entries,...rprops}){
   let width = entries.reduce(function (acc,e){
     return acc + e.width;
@@ -166,7 +162,7 @@ function PrimaryToggles({entries,...rprops}){
     </box>);
 }
 
-// js.blessed.layout/SecondaryButton [192] 
+// js.blessed.layout/SecondaryButton [190] 
 function SecondaryButton({label,index,setIndex,selected,noIndex,proxy,...rprops}){
   let colorFn = selected ? chalk.yellow : chalk.bold;
   let content = colorFn(
@@ -189,7 +185,7 @@ function SecondaryButton({label,index,setIndex,selected,noIndex,proxy,...rprops}
     </button>);
 }
 
-// js.blessed.layout/SecondaryMenu [228] 
+// js.blessed.layout/SecondaryMenu [226] 
 function SecondaryMenu({items,label,index = 1,noIndex,setIndex,menuContent,menuFooter}){
   items = (Array.isArray(items) ? items : Object.keys(items));
   let entries = items.map(function (e,i){
@@ -254,31 +250,31 @@ function SecondaryMenu({items,label,index = 1,noIndex,setIndex,menuContent,menuF
     </box>);
 }
 
-// js.blessed.layout/LayoutHeaderBlock [303] 
+// js.blessed.layout/LayoutHeaderBlock [301] 
 function LayoutHeaderBlock({children}){
   return (
     <box top={0} left={0} right={0} height={1} bg="black">{children}</box>);
 }
 
-// js.blessed.layout/LayoutFooterBlock [314] 
+// js.blessed.layout/LayoutFooterBlock [312] 
 function LayoutFooterBlock({children}){
   return (
     <box bottom={0} left={0} right={0} height={1} bg="black">{children}</box>);
 }
 
-// js.blessed.layout/LayoutBodyBlock [325] 
+// js.blessed.layout/LayoutBodyBlock [323] 
 function LayoutBodyBlock({children}){
   return (
     <box top={1} bottom={1} width="100%">{children}</box>);
 }
 
-// js.blessed.layout/BlankRoute [334] 
+// js.blessed.layout/BlankRoute [332] 
 function BlankRoute({route}){
   return (
     <box>{"Missing: " + route}</box>);
 }
 
-// js.blessed.layout/LayoutBody [340] 
+// js.blessed.layout/LayoutBody [338] 
 function LayoutBody({console,consoleHeight,index,items,label,menuContent,menuFooter,menuHide,menuWidth,setIndex}){
   let {name,props,view} = items[index - 1];
   let Component = view || BlankRoute;
@@ -317,7 +313,7 @@ function LayoutBody({console,consoleHeight,index,items,label,menuContent,menuFoo
     </LayoutBodyBlock>);
 }
 
-// js.blessed.layout/LayoutStatus [392] 
+// js.blessed.layout/LayoutStatus [390] 
 function LayoutStatus({
   busy,
   setBusy,
@@ -372,7 +368,7 @@ function LayoutStatus({
     </box>);
 }
 
-// js.blessed.layout/LayoutNotify [446] 
+// js.blessed.layout/LayoutNotify [444] 
 function LayoutNotify({
   setNotify,
   notify = {"content":"","type":"info","show":false,"layout":{}}
@@ -422,7 +418,7 @@ function LayoutNotify({
     </box>);
 }
 
-// js.blessed.layout/LayoutHeader [502] 
+// js.blessed.layout/LayoutHeader [500] 
 function LayoutHeader({header,route,setRoute}){
   let items = header["menu"];
   let entries = layoutMenu(items);
@@ -432,7 +428,7 @@ function LayoutHeader({header,route,setRoute}){
     </LayoutHeaderBlock>);
 }
 
-// js.blessed.layout/LayoutFooter [517] 
+// js.blessed.layout/LayoutFooter [515] 
 function LayoutFooter({busy,footer,header,route,setBusy,setRoute,setStatus,status}){
   let items = footer["menu"] || [];
   let ientries = layoutMenu(items);
@@ -464,7 +460,7 @@ function LayoutFooter({busy,footer,header,route,setBusy,setRoute,setStatus,statu
     </LayoutFooterBlock>);
 }
 
-// js.blessed.layout/LayoutMain [557] 
+// js.blessed.layout/LayoutMain [555] 
 function LayoutMain({
   header = {"menu":[],"toggle":null,"user":null},
   footer = {"menu":[],"toggle":null},
