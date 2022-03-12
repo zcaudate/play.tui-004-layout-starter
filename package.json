@@ -1,5 +1,5 @@
 {
-  "name": "tui-003-sensor",
+  "name": "tui-004-layout-starter",
   "main": "src/main.js",
   "scripts": {
     "dev": "npx webpack --watch",
